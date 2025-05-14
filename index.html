@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trump Operation: The Art of the Heal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>TRUMP OPERATION: THE ART OF THE HEAL</h1>
+  <div id="game-area-wrapper">
+    <div id="instructions-box">
+      <h2>HOW TO PLAY</h2>
+      <ul>
+        <li>CLICK AND DRAG AN AILMENT FROM THE BOARD.</li>
+        <li>CAREFULLY MOVE IT TO THE OPERATING CART ON THE RIGHT.</li>
+        <li>IF YOU TOUCH THE EDGE, YOU'LL HEAR "FAKE NEWS!" OR "WRONG!" AND LOSE POINTS.</li>
+        <li>EXTRACT ALL AILMENTS BEFORE TIME RUNS OUT TO WIN!</li>
+        <li>THE FASTER YOU EXTRACT, THE HIGHER YOUR SCORE!</li>
+      </ul>
+      <div style="margin-top:10px;font-size:0.95em;">I KNOW MORE ABOUT MEDICINE THAN THE DOCTORS, BELIEVE ME!</div>
+    </div>
+    <div id="game-container">
+      <img id="board" src="assets/trump-operation-board.jpg" alt="Trump Operation Board">
+      <svg id="ailments-overlay"></svg>
+      <div id="tweezers"></div>
+    </div>
+    <div id="cart-container">
+      <h2>OPERATING CART</h2>
+      <ul id="cart"></ul>
+    </div>
+  </div>
+  <div id="hud">
+    <span id="timer">Time: 0</span> |
+    <span id="score">Score: 0</span>
+  </div>
+  <div id="status"></div>
+  <script src="game.js"></script>
+</body>
+</html> 

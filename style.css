@@ -1,0 +1,149 @@
+body {
+  font-family: 'Arial Black', Arial, sans-serif;
+  background: #f9e7c2;
+  text-align: center;
+}
+#game-container {
+  position: relative;
+  display: inline-block;
+}
+#board {
+  width: 600px;
+  display: block;
+}
+#ailments-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 600px; height: 900px;
+  pointer-events: none;
+}
+.ailment {
+  cursor: pointer;
+  pointer-events: all;
+  fill: rgba(255, 255, 0, 0.5);
+  stroke: #b22222;
+  stroke-width: 4;
+  transition: fill 0.2s;
+}
+.ailment.removed {
+  fill: rgba(0,0,0,0);
+  pointer-events: none;
+}
+#tweezers {
+  position: absolute;
+  width: 40px; height: 40px;
+  background: url('assets/tweezers.png') no-repeat center/contain;
+  pointer-events: none;
+  display: none;
+}
+#status {
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: #b22222;
+}
+#game-area-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 20px;
+}
+#cart-container {
+  background: #fffbe6;
+  border: 3px solid #b22222;
+  border-radius: 16px;
+  padding: 20px 16px;
+  min-width: 220px;
+  min-height: 400px;
+  box-shadow: 2px 2px 8px #b2222240;
+}
+#cart-container h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+#cart {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#cart li {
+  background: #ffe066;
+  border: 2px solid #b22222;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  font-weight: bold;
+  font-size: 1em;
+  box-shadow: 1px 1px 4px #b2222220;
+  opacity: 0;
+  animation: popIn 0.5s forwards;
+}
+@keyframes popIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  80% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+#hud {
+  margin-top: 18px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.ailment.animate-extract {
+  animation: flyToCart 0.7s cubic-bezier(.6,-0.28,.74,.05) forwards;
+}
+@keyframes flyToCart {
+  0% { opacity: 1; }
+  80% { transform: translateX(120px) scale(1.2); opacity: 0.7; }
+  100% { opacity: 0; }
+}
+#tweezers.animate-buzz {
+  animation: buzz 0.3s linear 2;
+}
+@keyframes buzz {
+  0% { transform: rotate(-10deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+#instructions-box {
+  background: #fffbe6;
+  border: 3px solid #b22222;
+  border-radius: 16px;
+  padding: 20px 18px 16px 18px;
+  min-width: 260px;
+  max-width: 300px;
+  margin-right: 20px;
+  box-shadow: 2px 2px 8px #b2222240;
+  text-align: left;
+  font-family: 'Arial Black', Arial, sans-serif;
+  text-transform: uppercase;
+}
+#instructions-box h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #b22222;
+}
+#instructions-box ul {
+  padding-left: 18px;
+  margin-bottom: 0;
+}
+#instructions-box li {
+  margin-bottom: 8px;
+  font-size: 1em;
+  font-weight: bold;
+}
+#cart-container.drag-over {
+  box-shadow: 0 0 24px 6px #ffe066, 0 0 0 4px #b22222;
+  border-color: #ffe066;
+  background: #fffbe6cc;
+  transition: box-shadow 0.2s, border-color 0.2s, background 0.2s;
+}
+.ailment.dragging {
+  stroke: #ffe066;
+  stroke-width: 6;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 8px #ffe066);
+  cursor: grabbing;
+  z-index: 10;
+} 
